@@ -17,29 +17,27 @@ window.onload = function() {
 	}
 
 	//mainImage transition
-	function() {
-		var right=0;
-		function moveImage() {
-			if(right%900==0 && right!=1800) {
-				clearInterval(interval);
-				setTimeout(function() {
-					interval = setInterval(moveImage,10)},3000);
-				right+=2;
-				return;
-			}
-			if(right == 1800) {
-				right = 0;
-				clearInterval(interval);
-				setTimeout(function() {
-					interval = setInterval(moveImage,10)},3000);
-				return;
-			}
-
-			right+=2;
-			imageWrap.setAttribute("style","right:"+right+"px;");
-		}
-	}
-
 	var imageWrap = document.getElementsByClassName("mainImageWrapper")[0];
 	var interval = setInterval(moveImage,10);
+	var right=0;
+
+	function moveImage() {
+		if(right%900==0 && right!=1800) {
+			clearInterval(interval);
+			setTimeout(function() {
+				interval = setInterval(moveImage,10)},3000);
+			right+=2;
+			return;
+		}
+		if(right == 1800) {
+			right = 0;
+			clearInterval(interval);
+			setTimeout(function() {
+				interval = setInterval(moveImage,10)},3000);
+			return;
+		}
+
+		right+=2;
+		imageWrap.setAttribute("style","right:"+right+"px;");
+	}
 }
