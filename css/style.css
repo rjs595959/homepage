@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR' ;
+}
 header {
 	width: 900px;
 	margin: 0 auto;
@@ -7,10 +12,7 @@ a {
 	color : black;
 	text-decoration: none;
 }
-* {
-	margin: 0;
-	padding: 0;
-}
+
 ul li {
 	list-style-type: none;
 }
@@ -35,11 +37,13 @@ nav > ul > li {
 	position: absolute;
 	text-align: center;
 	line-height: 2;
+	z-index: 2;
 }
 section {
 	width: 900px;
 	margin: 0 auto;
 	overflow: hidden;
+	z-index: 1;
 }
 .mainImageWrapper {
 	width: 900%;
