@@ -1,35 +1,27 @@
-window.onload = function() {
+$(document).ready(function() {
 	//event listener
 	function dragDown() {
-		var subMenu       = this.lastElementChild;
-		var parentWidth   = this.offsetWidth;
-		subMenu.setAttribute("style","display:block; width: "+parentWidth+"px;");
-
+		$(this).children('ul').css(
+			{"display":"block",
+			 "width"  : $(this).outerWidth()+"px"});
 	}
 	function dragUp() {
-		this.lastElementChild.setAttribute("style","display:none");
+		$(this).children('ul').css("display","none");
 	}
 
-	var slideMenuWrap = document.getElementsByClassName("slideMenuWrap");
-	for(var i=0; i<slideMenuWrap.length; i++) {
-		slideMenuWrap[i].addEventListener("mouseover", dragDown);
-		slideMenuWrap[i].addEventListener("mouseout", dragUp);
-	}
-
-	
+	$('.slideMenuWrap').on("mouseover",dragDown).on("mouseout",dragUp);	
 
 	//mainImage transition
 	var interval = setInterval(moveImage,10);
-	var imgWrap = document.getElementsByClassName("mainImageWrapper")[0];
 	
 	var right=0;
 	var srcOrder = 0;
-	var moveContent = imgWrap.firstElementChild;
+	var moveContent = $('.mainImageWrapper').children();
 	function moveImage() {
 		if(right == 0) {
-			var imgs = [...moveContent.children];
+			var imgs = [...moveContent.children()];
 			for(var i=0; i<imgs.length; i++) {
-				imgs[i].src = "../images/siba"+((srcOrder+i)%6)+".jpg";
+				$(imgs[i]).attr("src","../images/siba"+((srcOrder+i)%6)+".jpg");
 			}
 			srcOrder = (srcOrder+2)%6;
 		}
@@ -40,11 +32,11 @@ window.onload = function() {
 					interval = setInterval(moveImage,10);
 					return interval;
 				}, 3000);
-			moveContent.style.right = right+"px";
+			$(moveContent).css("right", right+"px");
 			right = 0;
 			return;
 		}
-		moveContent.style.right = right+"px";
+		$(moveContent).css("right", right+"px");
 		right+=2;
 	}
-}
+});
