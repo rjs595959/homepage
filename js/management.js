@@ -16,28 +16,35 @@ window.onload = function() {
 		slideMenuWrap[i].addEventListener("mouseout", dragUp);
 	}
 
+	
+
 	//mainImage transition
-	var imageWrap = document.getElementsByClassName("mainImageWrapper")[0];
 	var interval = setInterval(moveImage,10);
+	var imgWrap = document.getElementsByClassName("mainImageWrapper")[0];
+	
 	var right=0;
-
+	var srcOrder = 0;
+	var moveContent = imgWrap.firstElementChild;
 	function moveImage() {
-		if(right%900==0 && right!=1800) {
-			clearInterval(interval);
-			setTimeout(function() {
-				interval = setInterval(moveImage,10)},3000);
-			right+=2;
-			return;
+		if(right == 0) {
+			var imgs = [...moveContent.children];
+			for(var i=0; i<imgs.length; i++) {
+				imgs[i].src = "../images/siba"+((srcOrder+i)%6)+".jpg";
+			}
+			srcOrder = (srcOrder+2)%6;
 		}
-		if(right == 1800) {
+		if(right == 900) {
+			clearInterval(interval);
+			setTimeout(
+				function() {
+					interval = setInterval(moveImage,10);
+					return interval;
+				}, 3000);
+			moveContent.style.right = right+"px";
 			right = 0;
-			clearInterval(interval);
-			setTimeout(function() {
-				interval = setInterval(moveImage,10)},3000);
 			return;
 		}
-
+		moveContent.style.right = right+"px";
 		right+=2;
-		imageWrap.setAttribute("style","right:"+right+"px;");
 	}
 }

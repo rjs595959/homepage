@@ -3,9 +3,11 @@
 	padding: 0;
 	font-family: 'Noto Sans KR' ;
 }
-header {
+body {
 	width: 900px;
 	margin: 0 auto;
+}
+header {
 	border-bottom: 2px solid black;
 }
 a {
@@ -40,20 +42,40 @@ nav > ul > li {
 	z-index: 2;
 }
 section {
-	width: 900px;
-	margin: 0 auto;
 	overflow: hidden;
 	z-index: 1;
 }
 .mainImageWrapper {
 	width: 900%;
 	height: 410px;
+}
+.mainImageWrapper > div{
 	position: relative;
-	right   : 0px;
 }
 
 .mainImage {
 	width: 400px;
 	height: 400px;
 	margin: 10px 23px;
+}
+
+.contentWrapper {
+	height: 400px;
+	border: 1px solid black;
+}
+.contentWrapper article {
+	width:850px;
+	margin : 10px 25px;
+	border-bottom: 1px solid black;
+
+	font-size: 15px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.contentWrapper > nav {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
 }
