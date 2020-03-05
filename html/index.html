@@ -1,22 +1,96 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style type="text/css">
-			@import url('../css/style.css')
-		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel='stylesheet' href="../css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap&subset=korean" rel="stylesheet">
+		
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		  crossorigin="anonymous"></script>
-		  <script type="text/javascript" src="../js/management.js"></script>
+		<script type="text/javascript" src="../js/management.js"></script>
+
+		<style>
+			@media screen and (max-width: 360px) {
+				body {
+					width: 360px;
+				}
+				header {
+					height: 100%;
+					z-index: 2;
+				}
+				header > nav {
+					width: 30%;
+					height: 100%;
+				}
+				nav > ul {
+					height: 100%;
+					line-height: 50px;
+				}
+				nav > ul > li {
+					clear: both;
+					padding: 0px;
+				}
+				nav a {
+					padding-left: 10px;
+				}
+				.slideMenuWrap {
+					position: static;
+				}
+				.slideMenu {
+					position: static;
+					text-align: left;
+					padding-left: 20px;
+					line-height: 2;
+				}
+				.slideMenu {
+					display: block;
+					line-height: 2;
+				}
+
+				section, .contentWrapper {
+					z-index: 1;
+					height: 320px;
+				}
+
+				.mainImageWrapper {
+					width: 100%;
+					height: 100%;
+				}
+
+				.mainImage {
+					float: left;
+					width: 160px;
+					height: 160px;
+					margin: 0px 10px;
+				}
+				.contentWrapper article {
+					width: 100%;
+					margin : 10px 0;
+					border-bottom: 1px solid black;
+
+					font-size: 15px;
+					overflow:hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				.contentWrapper > nav {
+					height: 10px;
+					line-height: 50px;
+					text-align: center;
+				}
+			}
+		</style>
+
 	</head>
 	<body>
 		<header>
-			<nav>
+			<nav class="menu" >
 				<ul style="display: block">
 					<li class="slideMenuWrap">
 						<a href="#">lang</a>
-						<ul class="slideMenu" style="display: none" >
+						<ul class="slideMenu" style="display: none;">
 							<li><a>c++</a></li>
 							<li><a>java</a></li>
 							<li><a>python</a></li>
@@ -25,9 +99,9 @@
 							<li><a>javascript</a></li>
 						</ul>
 					</li>
-					<li class="slideMenuWrap">
+					<li class="slideMenuWrap" >
 						<a href="#">logic</a>
-						<ul class="slideMenu" style="display:none;">
+						<ul class="slideMenu" style="display: none;">
 							<li><a>수학</a></li>
 							<li><a>물리</a></li>
 							<li><a>알고리즘</a></li>
@@ -36,7 +110,7 @@
 					</li>
 					<li class="slideMenuWrap">
 						<a href="#">os</a>
-						<ul class="slideMenu" style="display:none;">
+						<ul class="slideMenu" style="display: none;">
 							<li><a>리눅스</a></li>
 							<li><a>윈도우</a></li>
 							<li>맥os</li>
@@ -44,7 +118,7 @@
 					</li>
 					<li class="slideMenuWrap" > 
 						<a href="#">security</a>
-						<ul class="slideMenu" style="display:none;">
+						<ul class="slideMenu" style="display: none;">
 							<li><a>웹</a></li>
 							<li><a>시스템</a></li>
 							<li><a>리버싱</a></li>
@@ -60,20 +134,20 @@
 				</ul>
 			</nav>
 		</header>
-		<section style="border: 1px solid black;">
+		<section >
 			<div class="mainImageWrapper">
 				<div>
-					<img class='mainImage'>
-					<img class='mainImage'>
-					<img class='mainImage'>
-					<img class='mainImage'>
+					<img class='mainImage' src="../images/siba1.jpg">
+					<img class='mainImage' src="../images/siba2.jpg">
+					<img class='mainImage' src="../images/siba3.jpg">
+					<img class='mainImage' src="../images/siba4.jpg">
 				</div>
 			</div> 
 		</section>
 		<section class="contentWrapper">
 			<article><a href="#">[lang]->[css]</a></article>
-			<a><article><a href="#">[lang]->[C++]</a></article></a>
-			<a><article><a href="#">[lang]->[Javascript]</a></article></a>
+			<article><a href="#">[lang]->[C++]</a></article>
+			<article><a href="#">[lang]->[Javascript]</a></article>
 			<nav>목차 : 1,2,3,</nav>
 		</section>
 
